@@ -9,7 +9,7 @@
     onMount(async () => {
         try {
             const FingerprintJS = await import(
-                "https://fpjscdn.net/v3/o1P0y7FQS6K1woZ7TD71"
+                "https://fpjscdn.net/v3/nDIZTjDDojsxxJTS0zC8"
             );
             let fpPromise = FingerprintJS.load();
             const fp = await fpPromise;
