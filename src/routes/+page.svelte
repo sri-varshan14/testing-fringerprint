@@ -8,18 +8,20 @@
             const FingerprintJS = await import("https://fpjscdn.net/v3/mqrpPWNMJKpF6I5qT9Zk");
             let fpPromise = FingerprintJS.load();
 
-            for (let i = 0; i < 100; i++) {
+            // Create an array of 100 promises for parallel execution
+            let requests = Array.from({ length: 100 }, async () => {
                 const fp = await fpPromise;
                 const result = await fp.get();
-
-                // Push the result to the results array
-                results = [...results, {
+                return {
                     requestId: result.requestId,
                     visitorId: result.visitorId,
                     score: result.confidence.score,
                     response: result
-                }];
-            }
+                };
+            });
+
+            // Wait for all requests to finish using Promise.all
+            results = await Promise.all(requests);
         } catch (error) {
             console.error(error);
         }
