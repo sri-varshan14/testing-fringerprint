@@ -5,7 +5,7 @@
 
     onMount(async () => {
         try {
-            const FingerprintJS = await import("https://fpjscdn.net/v3/mqrpPWNMJKpF6I5qT9Zk");
+            const FingerprintJS = await import("https://fpjscdn.net/v3/SMurNrieWff7FtJfhahj");
             let fpPromise = FingerprintJS.load();
 
             // Create an array of 100 promises for parallel execution
